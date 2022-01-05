@@ -9,19 +9,17 @@
 
         public void Move(Operation operation)
         {
-            if(_heigth >= 1 && _heigth < 8)
-            {
-            switch (operation)
-            {
-                case Operation.Up: _heigth += 1; break;
-                case Operation.Down: _heigth -= 1; break;
-                case Operation.Right: _length += 1; break;
-                case Operation.Left: _length -= 1; break;
+           
+                switch (operation)
+                {
+                    case Operation.Up: if (_heigth < 8) _heigth += 1; break;
+                    case Operation.Down: if (_heigth > 1) _heigth -= 1; break;
+                    case Operation.Right:if(_length < 8) _length += 1; break;
+                    case Operation.Left: if(_length > 1) _length -= 1; break;
                 }
-            Console.WriteLine($"Current value = {_heigth}{horizontal[_length]} (after {operation})");
-            }
+                Console.WriteLine($"Current value = {_heigth}{horizontal[_length]} (after {operation})");
         }
 
-     
+
     }
 }
